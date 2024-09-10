@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMC SAR Request Form</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="DAUK-GMC.png" alt="DAUK-GMC Logo" class="logo">
+        </div>
+        <h1 id="mainHeading">GMC Subject Access Request</h1>
+
+        <section class="project-info">
+            <h2>What is this?</h2>
+            <p>The General Medical Council (GMC) has been at the centre of controversy for not releasing raw data from
+                its public consultation on the regulation of Physician Associates (PAs) and Anaesthesia Associates
+                (AAs). This lack of transparency has raised concerns among the public and professionals alike about the
+                GMC's commitment to openness and accountability. To address this, we encourage you to exercise your
+                right under data protection laws by submitting a Subject Access Request (SAR) to the GMC. This action
+                will help in manually collecting responses and potentially shedding light on the consultation's
+                outcomes.</p>
+
+            <h2>Why submit a SAR?</h2>
+            <ul>
+                <li><strong>Transparency:</strong> Ensure that the GMC adheres to principles of openness by releasing
+                    data that rightfully belongs to the public domain.</li>
+                <li><strong>Accountability:</strong> Hold the GMC accountable for its regulatory decisions which impact
+                    healthcare standards and patient safety.</li>
+                <li><strong>Public Interest:</strong> Contribute to a broader understanding of how decisions affecting
+                    medical professions are made.</li>
+            </ul>
+
+            <h2>How to use this form:</h2>
+            <ol>
+                <li><strong>Fill in Your Details:</strong> Provide your personal information as required by the SAR
+                    process to verify your identity.</li>
+                <li><strong>Customise Your Request:</strong> Use the template to specify your request for data related
+                    to the PA/AA consultation.</li>
+                <li><strong>Submit:</strong> Send your generated email directly to the GMC using the provided template.
+                </li>
+                <li><strong>Share:</strong> Once you receive a response, please consider sharing it on Twitter/X or
+                    Bluesky with the hashtags <a href="https://x.com/hashtag/PAProject" target="_blank">#PAProject</a>
+                    <a href="https://x.com/hashtag/ReleaseTheData" target="_blank">#ReleaseTheData</a>.</li>
+            </ol>
+        </section>
+
+        <form id="sarForm" aria-labelledby="mainHeading" novalidate>
+            <div class="input-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name"
+                    aria-describedby="nameError" title="Enter your full name">
+                <span class="error-message" id="nameError">Please enter your full name.</span>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email"
+                    aria-describedby="emailError" title="Enter a valid email">
+                <span class="error-message" id="emailError">Please enter a valid email address.</span>
+            </div>
+
+            <div class="input-group">
+                <label for="gmcNumber">GMC Number (if applicable):</label>
+                <input type="text" id="gmcNumber" name="gmcNumber" placeholder="Enter your GMC number (optional)"
+                    title="Enter your GMC number if applicable">
+            </div>
+
+            <button type="submit" aria-label="Generate Email">Generate Email</button>
+        </form>
+
+        <div id="emailTemplate" class="hidden">
+            <h2>Generated Subject Access Request Email</h2>
+            <p>Here's your generated SAR email. You can copy this content or use the buttons below to send directly or
+                copy to clipboard.</p>
+
+            <div class="email-content">
+                <p><strong>To:</strong> <span id="receiverEmail"></span></p>
+                <p><strong>Subject:</strong> <span id="emailSubject"></span></p>
+                <p><strong>Body:</strong></p>
+                <pre id="emailBody"></pre>
+            </div>
+
+            <button type="button" onclick="copyToClipboard()" aria-label="Copy email content to clipboard">Copy to
+                Clipboard</button>
+            <button type="button" id="sendEmailBtn" aria-label="Send email">Send Email</button>
+            <button type="button" onclick="showForm()" aria-label="Return to form">Back to Form</button>
+
+            <div class="share-reminder">
+                <p>Once you receive a response, please consider sharing it on Twitter/X or Bluesky with the hashtags <a
+                        href="https://x.com/hashtag/PAProject" target="_blank">#PAProject</a> <a
+                        href="https://x.com/hashtag/ReleaseTheData" target="_blank">#ReleaseTheData</a></p>
+                <p>Created by <a href="https://x.com/drmattuk" target="_blank">Dr Matt Kneale</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
