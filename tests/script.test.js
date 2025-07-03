@@ -46,3 +46,51 @@ describe('generateEmail', () => {
     expect(body).toContain('john@example.com');
   });
 });
+
+describe('validateEmailField', () => {
+  let dom;
+  let validateEmailField;
+  let document;
+
+  beforeAll(async () => {
+    dom = await loadDom();
+    validateEmailField = dom.window.eval('validateEmailField');
+    document = dom.window.document;
+  });
+
+  afterAll(() => {
+    dom.window.close();
+  });
+
+  beforeEach(() => {
+    document.getElementById('emailError').style.display = '';
+  });
+
+  test('rejects invalid email addresses', () => {
+    const emailInput = document.getElementById('email');
+    emailInput.value = 'a@b';
+
+    const result = validateEmailField(
+      emailInput,
+      'emailError',
+      'Please enter a valid email address.'
+    );
+
+    expect(result).toBe(false);
+    expect(document.getElementById('emailError').style.display).toBe('block');
+  });
+
+  test('accepts multi-segment domain emails', () => {
+    const emailInput = document.getElementById('email');
+    emailInput.value = 'john@domain.co.uk';
+
+    const result = validateEmailField(
+      emailInput,
+      'emailError',
+      'Please enter a valid email address.'
+    );
+
+    expect(result).toBe(true);
+    expect(document.getElementById('emailError').style.display).toBe('none');
+  });
+});
