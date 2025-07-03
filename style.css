@@ -208,9 +208,6 @@ input:invalid {
 
 input:invalid+.error-message {
   display: block;
-}
-
-input:invalid {
   border-color: #e74c3c;
 }
 
