@@ -12,3 +12,20 @@ The General Medical Council (GMC) has been at the centre of controversy for not 
 - **Customise Email Content**: Allows users to enter personal details and generates a customised SAR email.
 - **Copy to Clipboard**: Users can copy the generated email content to their clipboard.
 - **Direct Email Sending**: Users can send the generated email directly using a mailto link.
+
+## Requirements
+
+- Node.js 18 or later
+
+## Setup
+
+Install dependencies and run the test suite:
+
+```bash
+npm install
+npm test
+```
+
+## Usage
+
+Open `index.html` in your web browser to use the form locally.
