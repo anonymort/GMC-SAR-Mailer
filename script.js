@@ -41,7 +41,9 @@ const validateField = (field, errorId, errorMessage) => {
 
 // Validate email field with custom validation
 const validateEmailField = (field, errorId, errorMessage) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,24}$/;
+    // Accept domains with multiple segments (e.g. example.co.uk)
+    // First segment cannot contain a dot to avoid matching "domain..com"
+    const emailRegex = /^[^\s@]+@[^\s@.]+(\.[^\s@.]{2,})+$/;
     const errorElement = document.getElementById(errorId);
 
     if (!emailRegex.test(field.value)) {
